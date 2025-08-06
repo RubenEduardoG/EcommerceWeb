@@ -1,51 +1,62 @@
+@charset "UTF-8";
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #f4f9f7;
+  color: #333;
 }
+
 header {
-  background: #0e4a00f0;
+  background: rgba(14, 74, 0, 0.9411764706);
   padding: 10px;
   text-align: center;
 }
-.logo {
+header .logo {
   max-width: 200px;
 }
+
 nav {
   background: #333;
 }
-.nav-links {
+nav .nav-links {
   list-style: none;
   display: flex;
   justify-content: center;
   padding: 10px;
   margin: 0;
 }
-.nav-links li {
+nav .nav-links li {
   margin: 0 15px;
 }
-.nav-links a {
+nav .nav-links li a {
   color: white;
   text-decoration: none;
 }
+
 main {
   padding: 20px;
 }
+
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
 }
-.product {
+.product-grid .product {
   border: 1px solid #ccc;
   padding: 15px;
   text-align: center;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-.product img {
+.product-grid .product img {
   width: 100%;
   max-height: 180px;
   object-fit: contain;
 }
+
 .buy-button {
   background-color: #35c452;
   color: white;
@@ -53,11 +64,12 @@ main {
   padding: 0.5rem 1rem;
   border-radius: 5px;
   cursor: pointer;
+  transition: background 0.3s ease;
+}
+.buy-button:hover {
+  background-color: #118d1d;
 }
 
-.buy-button:hover {
-  background-color: #a55627;
-}
 footer {
   background: #222;
   color: white;
@@ -65,3 +77,46 @@ footer {
   padding: 15px;
   margin-top: 30px;
 }
+
+/* ================================
+   📌 Servicios
+================================ */
+.servicios-page h2 {
+  color: rgba(14, 74, 0, 0.9411764706);
+  margin-bottom: 2rem;
+}
+.servicios-page .lead {
+  color: rgb(12.75, 12.75, 12.75);
+  font-size: 1.2rem;
+}
+.servicios-page .card {
+  border: none;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.servicios-page .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+.servicios-page .card h4 {
+  color: #35c452;
+  margin-bottom: 1rem;
+}
+.servicios-page .card p {
+  color: #333;
+  font-size: 1rem;
+}
+.servicios-page .btn {
+  margin-top: 2rem;
+  padding: 0.75rem 2rem;
+  font-weight: bold;
+  background-color: #35c452;
+  border: none;
+}
+.servicios-page .btn:hover {
+  background-color: #118d1d;
+}
+
+/*# sourceMappingURL=style.css.map */
