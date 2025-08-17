@@ -185,3 +185,32 @@ footer {
     padding: 10px;
   }
 }
+// Publicidad slider
+.cinta-publicidad {
+  width: 100%;
+  overflow: hidden;
+  background-color: #fff; // color de fondo, podés cambiarlo
+  border-top: 2px solid #ccc;
+  border-bottom: 2px solid #ccc;
+
+  .cinta-contenido {
+    display: flex;
+    gap: 20px;
+    animation: mover-cinta 20s linear infinite;
+
+    img {
+      height: 200px; // altura de las imágenes
+      width: auto;
+      flex-shrink: 0;
+    }
+  }
+}
+
+@keyframes mover-cinta {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

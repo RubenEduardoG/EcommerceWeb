@@ -1,4 +1,3 @@
-@charset "UTF-8";
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -15,49 +14,56 @@ header {
 header .logo {
   max-width: 200px;
 }
+header h1 {
+  margin: 10px 0 0 0;
+}
 
-nav {
+.navbar {
   background: #333;
 }
-nav .nav-links {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-  margin: 0;
+.navbar .nav-link {
+  color: white !important;
 }
-nav .nav-links li {
-  margin: 0 15px;
-}
-nav .nav-links li a {
-  color: white;
-  text-decoration: none;
+.navbar .nav-link.active {
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 main {
   padding: 20px;
 }
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+main h2, main h3, main h4 {
+  color: rgba(14, 74, 0, 0.9411764706);
 }
-.product-grid .product {
-  border: 1px solid #ccc;
-  padding: 15px;
-  text-align: center;
+main p.lead {
+  font-size: 1.1rem;
+}
+
+.row .card {
+  border: none;
+  border-radius: 12px;
   background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.product-grid .product img {
+.row .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+.row .card img {
   width: 100%;
-  max-height: 180px;
+  height: 180px;
   object-fit: contain;
+  border-radius: 8px 8px 0 0;
+}
+.row .card .card-body h5 {
+  color: rgba(14, 74, 0, 0.9411764706);
+}
+.row .card .card-body p {
+  font-weight: bold;
 }
 
-.buy-button {
+.btn-success, .buy-button {
   background-color: #35c452;
   color: white;
   border: none;
@@ -66,57 +72,101 @@ main {
   cursor: pointer;
   transition: background 0.3s ease;
 }
-.buy-button:hover {
+.btn-success:hover, .buy-button:hover {
   background-color: #118d1d;
+}
+
+.servicios-page .card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+.servicios-page .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+.servicios-page .card h4 {
+  color: rgba(14, 74, 0, 0.9411764706);
+  margin-bottom: 10px;
+}
+
+form label {
+  font-weight: bold;
+}
+form input, form textarea {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+form button {
+  margin-top: 10px;
 }
 
 footer {
   background: #222;
   color: white;
   text-align: center;
-  padding: 15px;
+  padding: 20px;
   margin-top: 30px;
 }
+footer .footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 15px;
+}
+footer .footer-container .footer-box {
+  margin: 10px;
+}
+footer .footer-container .footer-box a {
+  color: white;
+  text-decoration: none;
+}
+footer .footer-container .footer-box a:hover {
+  text-decoration: underline;
+}
+footer .footer-copy {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
 
-/* ================================
-   📌 Servicios
-================================ */
-.servicios-page h2 {
-  color: rgba(14, 74, 0, 0.9411764706);
-  margin-bottom: 2rem;
+@media (max-width: 768px) {
+  header .logo {
+    max-width: 120px;
+  }
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  main {
+    padding: 10px;
+  }
 }
-.servicios-page .lead {
-  color: rgb(12.75, 12.75, 12.75);
-  font-size: 1.2rem;
+.cinta-publicidad {
+  width: 100%;
+  overflow: hidden;
+  background-color: #fff;
+  border-top: 2px solid #ccc;
+  border-bottom: 2px solid #ccc;
 }
-.servicios-page .card {
-  border: none;
-  border-radius: 12px;
-  background: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.cinta-publicidad .cinta-contenido {
+  display: flex;
+  gap: 20px;
+  animation: mover-cinta 20s linear infinite;
 }
-.servicios-page .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+.cinta-publicidad .cinta-contenido img {
+  height: 200px;
+  width: auto;
+  flex-shrink: 0;
 }
-.servicios-page .card h4 {
-  color: #35c452;
-  margin-bottom: 1rem;
-}
-.servicios-page .card p {
-  color: #333;
-  font-size: 1rem;
-}
-.servicios-page .btn {
-  margin-top: 2rem;
-  padding: 0.75rem 2rem;
-  font-weight: bold;
-  background-color: #35c452;
-  border: none;
-}
-.servicios-page .btn:hover {
-  background-color: #118d1d;
+
+@keyframes mover-cinta {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
